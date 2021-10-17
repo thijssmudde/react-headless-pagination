@@ -1,17 +1,18 @@
 import React from "react";
-import { IPaginationProps, IPagination } from "../Pagination.d";
+import { IPaginationProps, IUsePagination } from "../Pagination.d";
 
 const usePagination = ({
-  initialPage,
+  currentPage,
+  setCurrentPage,
+  truncableText = "...",
+  truncableClassName = "",
   totalPages,
   edgePageCount = 2,
   middlePagesSiblingCount = 1,
-}: IPaginationProps): IPagination => {
+}: IPaginationProps): IUsePagination => {
   const pages = Array(totalPages)
     .fill(0)
     .map((_, i) => i + 1);
-
-  const [currentPage, setCurrentPage] = React.useState<number>(initialPage);
 
   const hasPreviousPage = currentPage > 1;
   const hasNextPage = currentPage < totalPages;
@@ -28,8 +29,8 @@ const usePagination = ({
       return pages.slice(-middlePageCount);
     }
     return pages.slice(
-      currentPage - middlePagesSiblingCount - 1,
-      currentPage + middlePagesSiblingCount,
+      currentPage - middlePagesSiblingCount,
+      currentPage + middlePagesSiblingCount + 1,
     );
   }, [currentPage, pages]);
 
@@ -69,23 +70,20 @@ const usePagination = ({
   }, [middlePages, pages]);
 
   const isPreviousTruncable = React.useMemo(() => {
-    return (
-      previousPages.filter(
-        (p) => !previousPages.includes(p) && !middlePages.includes(p),
-      ).length > 0
-    );
+    // Is truncable if first value of middlePage is larger than last value of previousPages
+    return middlePages[0] > previousPages[previousPages.length - 1] + 1;
   }, [previousPages, middlePages]);
 
   const isNextTruncable = React.useMemo(() => {
-    return (
-      nextPages.filter(
-        (p) => !nextPages.includes(p) && !middlePages.includes(p),
-      ).length > 0
-    );
+    // Is truncable if last value of middlePage is larger than first value of previousPages
+    return middlePages[middlePages.length - 1] + 1 < nextPages[0];
   }, [nextPages, middlePages]);
 
   return {
     currentPage,
+    setCurrentPage,
+    truncableText,
+    truncableClassName,
     pages,
     hasPreviousPage,
     hasNextPage,
@@ -94,7 +92,6 @@ const usePagination = ({
     middlePages,
     isNextTruncable,
     nextPages,
-    setCurrentPage,
   };
 };
 

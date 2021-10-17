@@ -1,12 +1,21 @@
-interface IPaginationProps {
-  initialPage: number;
+import { ButtonHTMLAttributes } from "react";
+
+interface IBasePaginationProps {
+  currentPage: number;
+  setCurrentPage: (page: number) => void;
+  truncableText?: string;
+  truncableClassName?: string;
+}
+
+interface IPaginationProps extends IBasePaginationProps {
   totalPages: number;
   edgePageCount: number;
   middlePagesSiblingCount: number;
+  className?: string;
+  children?: React.ReactNode;
 }
 
-interface IPagination {
-  currentPage: number;
+interface IUsePagination extends IBasePaginationProps {
   pages: number[];
   hasPreviousPage: boolean;
   hasNextPage: boolean;
@@ -15,7 +24,27 @@ interface IPagination {
   middlePages: number[];
   isNextTruncable: boolean;
   nextPages: number[];
+}
+
+interface IPagination extends IUsePagination {
   setCurrentPage: (page: number) => void;
 }
 
-export { IPaginationProps, IPagination };
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: string | React.ReactNode;
+  className?: string;
+}
+
+interface PageButtonProps {
+  className?: string;
+  activeClassName?: string;
+  inactiveClassName?: string;
+}
+
+export {
+  IPaginationProps,
+  IUsePagination,
+  IPagination,
+  ButtonProps,
+  PageButtonProps,
+};

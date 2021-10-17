@@ -1,27 +1,139 @@
-import React, { ButtonHTMLAttributes, FC } from "react";
+import React, { FC } from "react";
 import classNames from "classnames";
-import { IPaginationProps } from "./Pagination.d";
+import usePagination from "./hooks/usePagination";
+import {
+  IPagination,
+  IPaginationProps,
+  ButtonProps,
+  PageButtonProps,
+} from "./Pagination.d";
 
-export interface PrevButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: string | React.ReactElement;
-}
-
-export const PrevButton: FC<PrevButtonProps> = ({
+export const PrevButton: FC<ButtonProps> = ({
   className,
   children,
   ...buttonProps
 }) => {
+  const pagination: IPagination = React.useContext(PaginationContext);
+  const previous = () => {
+    if (pagination.currentPage + 1 > 1) {
+      pagination.setCurrentPage(pagination.currentPage - 1);
+    }
+  };
+
   return (
-    <button className={classNames(className)} {...buttonProps}>
+    <button
+      className={className}
+      {...buttonProps}
+      onClick={() => previous()}
+      disabled={pagination.currentPage === 0}
+    >
       {children}
     </button>
   );
 };
 
-// NextButton
-// PageButton
+export const NextButton: FC<ButtonProps> = ({
+  className,
+  children,
+  ...buttonProps
+}) => {
+  const pagination: IPagination = React.useContext(PaginationContext);
+  const next = () => {
+    if (pagination.currentPage + 1 < pagination.pages.length) {
+      pagination.setCurrentPage(pagination.currentPage + 1);
+    }
+  };
 
-export const Pagination: FC<IPaginationProps> = () => {
-  return <div className="text-blue-500">pagination</div>;
+  return (
+    <button
+      className={className}
+      {...buttonProps}
+      onClick={() => next()}
+      disabled={pagination.currentPage === pagination.pages.length - 1}
+    >
+      {children}
+    </button>
+  );
 };
+
+interface ITruncableElementProps {
+  prev?: boolean;
+}
+
+export const TruncableElement: FC<ITruncableElementProps> = ({ prev }) => {
+  const pagination: IPagination = React.useContext(PaginationContext);
+
+  const {
+    isPreviousTruncable,
+    isNextTruncable,
+    truncableText = "...",
+    truncableClassName = "",
+  } = pagination;
+
+  return (isPreviousTruncable && prev === true) ||
+    (isNextTruncable && !prev) ? (
+    <span className={truncableClassName}>{truncableText}</span>
+  ) : null;
+};
+
+export const PageButton: FC<PageButtonProps> = ({
+  className,
+  activeClassName = "",
+  inactiveClassName = "",
+}) => {
+  const pagination: IPagination = React.useContext(PaginationContext);
+
+  const renderPageButton = (page: number) => (
+    <span
+      key={page}
+      className={classNames(className, {
+        [activeClassName]: pagination.currentPage + 1 === page,
+        [inactiveClassName]: pagination.currentPage + 1 !== page,
+      })}
+      onClick={() => pagination.setCurrentPage(page - 1)}
+    >
+      {page}
+    </span>
+  );
+
+  return (
+    <>
+      {pagination.previousPages.map(renderPageButton)}
+      <TruncableElement prev />
+      {pagination.middlePages.map(renderPageButton)}
+      <TruncableElement />
+      {pagination.nextPages.map(renderPageButton)}
+    </>
+  );
+};
+
+const PaginationContext: React.Context<any> = React.createContext({
+  currentPage: 0,
+  setCurrentPage: () => {},
+  truncableText: "...",
+  truncableClassName: "",
+  pages: [],
+  hasPreviousPage: false,
+  hasNextPage: false,
+  previousPages: [],
+  isPreviousTruncable: false,
+  middlePages: [],
+  isNextTruncable: false,
+  nextPages: [],
+});
+
+export const Pagination = (paginationProps: IPaginationProps) => {
+  const pagination = usePagination(paginationProps);
+
+  return (
+    <PaginationContext.Provider value={pagination}>
+      <div className={paginationProps.className}>
+        {paginationProps.children}
+      </div>
+    </PaginationContext.Provider>
+  );
+};
+
+Pagination.PrevButton = PrevButton;
+Pagination.NextButton = NextButton;
+Pagination.PageButton = PageButton;
