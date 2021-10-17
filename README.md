@@ -3,8 +3,7 @@
 Do you want to design your own pagination component, but do not want to worry about the logic of pagination? Then this tiny and performant package is for you. `react-headless-pagination` is ideal if you are working with a utility-based css framework like TailwindCSS. `react-headless-pagination` offers plenty of customization and is also fully typed.
 
 [![npm](https://img.shields.io/npm/v/react-headless-pagination)](https://www.npmjs.com/package/react-headless-pagination)
-
-<!-- [![ghostUI](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/ipjs5c&style=for-the-badge&logo=cypress)](https://dashboard.cypress.io/projects/ipjs5c/runs) -->
+![Jest unit tests](https://github.com/fullhdpixel/react-headless-pagination/actions/workflows/main.yml/badge.svg)
 
 ## Install
 
