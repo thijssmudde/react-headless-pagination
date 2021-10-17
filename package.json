@@ -20,7 +20,7 @@
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token f6e38b79b78a"
+    "build:css": "tailwindcss build -o storybook-static/tailwind.css --minify"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -31,7 +31,7 @@
     }
   },
   "name": "react-headless-pagination",
-  "author": "Fullhdpixel",
+  "author": "Thijs Smudde",
   "module": "dist/react-headless-pagination.esm.js",
   "size-limit": [
     {
@@ -57,20 +57,20 @@
     "@tailwindcss/postcss7-compat": "2.0.3",
     "@testing-library/jest-dom": "5.11.9",
     "@testing-library/react": "11.2.5",
-    "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/react-hooks": "7.0.2",
     "@types/react": "17.0.1",
     "@types/react-dom": "17.0.0",
     "autoprefixer": "9",
     "babel-loader": "8.2.2",
     "chromatic": "5.6.2",
-    "classnames": "^2.3.1",
+    "classnames": "2.3.1",
     "husky": "4.3.8",
     "identity-obj-proxy": "3.0.0",
     "postcss": "7",
     "prettier": "2.4.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-icons": "^4.3.1",
+    "react-icons": "4.3.1",
     "react-is": "17.0.1",
     "rollup-plugin-postcss": "4.0.0",
     "size-limit": "4.9.2",
