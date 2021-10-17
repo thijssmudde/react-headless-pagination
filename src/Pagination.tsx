@@ -107,7 +107,7 @@ export const PageButton: FC<PageButtonProps> = ({
   );
 };
 
-const PaginationContext: React.Context<any> = React.createContext({
+const defaultState: IPagination = {
   currentPage: 0,
   setCurrentPage: () => {},
   truncableText: "...",
@@ -120,7 +120,10 @@ const PaginationContext: React.Context<any> = React.createContext({
   middlePages: [],
   isNextTruncable: false,
   nextPages: [],
-});
+};
+
+const PaginationContext: React.Context<IPagination> =
+  React.createContext(defaultState);
 
 export const Pagination = (paginationProps: IPaginationProps) => {
   const pagination = usePagination(paginationProps);
