@@ -63,7 +63,7 @@ describe("usePagination", () => {
     expect(result.current.hasNextPage).toBe(true);
     expect(result.current.previousPages).toStrictEqual([1, 2]);
     expect(result.current.isPreviousTruncable).toBe(true);
-    expect(result.current.middlePages).toStrictEqual([4, 5, 6]);
+    expect(result.current.middlePages).toStrictEqual([5, 6, 7]);
     expect(result.current.isNextTruncable).toBe(true);
     expect(result.current.nextPages).toStrictEqual([9, 10]);
   });
@@ -84,7 +84,7 @@ describe("usePagination", () => {
     expect(result.current.hasNextPage).toBe(true);
     expect(result.current.previousPages).toStrictEqual([1, 2]);
     expect(result.current.isPreviousTruncable).toBe(true);
-    expect(result.current.middlePages).toStrictEqual([50]);
+    expect(result.current.middlePages).toStrictEqual([51]);
     expect(result.current.isNextTruncable).toBe(true);
     expect(result.current.nextPages).toStrictEqual([99, 100]);
   });
@@ -127,7 +127,7 @@ describe("usePagination", () => {
     expect(result.current.hasNextPage).toBe(true);
     expect(result.current.previousPages).toStrictEqual([1, 2]);
     expect(result.current.isPreviousTruncable).toBe(true);
-    expect(result.current.middlePages).toStrictEqual([41, 42, 43]);
+    expect(result.current.middlePages).toStrictEqual([42, 43, 44]);
     expect(result.current.isNextTruncable).toBe(true);
     expect(result.current.nextPages).toStrictEqual([999, 1000]);
   });
@@ -171,8 +171,8 @@ describe("usePagination", () => {
     expect(result.current.previousPages).toStrictEqual([1, 2, 3, 4, 5]);
     expect(result.current.isPreviousTruncable).toBe(true);
     expect(result.current.middlePages).toStrictEqual([
-      40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57,
-      58, 59, 60,
+      41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58,
+      59, 60, 61,
     ]);
     expect(result.current.isNextTruncable).toBe(true);
     expect(result.current.nextPages).toStrictEqual([96, 97, 98, 99, 100]);
