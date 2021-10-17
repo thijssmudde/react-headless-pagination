@@ -21,7 +21,7 @@ const PaginationStory: Story<IPaginationProps> = (args) => {
 
   return (
     <>
-      Current page: {page}
+      Current page: {page + 1}
       <Pagination
         {...args}
         currentPage={page}
