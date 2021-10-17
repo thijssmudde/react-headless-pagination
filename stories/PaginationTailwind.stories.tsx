@@ -4,7 +4,7 @@ import { Pagination, IPaginationProps } from "../src";
 import classNames from "classnames";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
-import "../src/tailwind.css";
+import "./tailwind.css";
 
 const meta: Meta = {
   title: "Pagination Tailwind",
