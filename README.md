@@ -11,13 +11,11 @@ Do you want to design your own pagination component, but do not want to worry ab
 yarn add react-headless-pagination
 ```
 
-## Example
+## Demo: Unstyled & TailwindCSS
 
-[Netlify Demo](https://616c7df73daace00077d9d6e--festive-hamilton-f814b9.netlify.app/)
+[Storybook](https://616c7df73daace00077d9d6e--festive-hamilton-f814b9.netlify.app/)
 
 ## Usage
-
-### Render Props
 
 ```tsx
 import { Pagination } from "react-headless-pagination";
@@ -58,6 +56,8 @@ return (
   </>
 );
 ```
+
+An example of a styled version can be found in stories/PaginationTailwind.stories.tsx.
 
 ## Pagination props
 
