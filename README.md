@@ -13,7 +13,7 @@ yarn add react-headless-pagination
 
 ## Demo: Unstyled & TailwindCSS
 
-[Storybook](https://616c7df73daace00077d9d6e--festive-hamilton-f814b9.netlify.app/)
+[Storybook](https://deploy-preview-1--react-headless-pagination.netlify.app)
 
 ## Usage
 
