@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import classNames from "classnames";
-import usePagination from "../Hooks/usePagination";
+import usePagination from "../__Hooks/usePagination";
 import {
   IPagination,
   IPaginationProps,
