@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import classNames from "classnames";
-import usePagination from "./hooks/usePagination";
+import usePagination from "../Hooks/usePagination";
 import {
   IPagination,
   IPaginationProps,
@@ -60,7 +60,7 @@ interface ITruncableElementProps {
   prev?: boolean;
 }
 
-export const TruncableElement: FC<ITruncableElementProps> = ({ prev }) => {
+const TruncableElement: FC<ITruncableElementProps> = ({ prev }) => {
   const pagination: IPagination = React.useContext(PaginationContext);
 
   const {

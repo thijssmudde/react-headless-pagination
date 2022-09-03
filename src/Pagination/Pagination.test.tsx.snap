@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination renders correctly with advanced setup of prevButton, pageButton and nextButton using Tailwind 1`] = `
+<DocumentFragment>
+  <div
+    class="flex items-center w-full h-10 text-sm select-none"
+  >
+    <button
+      class="flex items-center mr-2 text-gray-500 cursor-pointer hover:text-gray-600 dark:hover:text-gray-200 focus:outline-none"
+    >
+      <svg
+        class="mr-3"
+        fill="none"
+        height="20"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <line
+          x1="19"
+          x2="5"
+          y1="12"
+          y2="12"
+        />
+        <polyline
+          points="12 19 5 12 12 5"
+        />
+      </svg>
+      Previous
+    </button>
+    <div
+      class="flex items-center justify-center flex-grow"
+    >
+      <span
+        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
+      >
+        1
+      </span>
+      <span
+        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer bg-primary-50 dark:bg-opacity-0 text-primary-600 dark:text-white"
+      >
+        2
+      </span>
+      <span
+        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
+      >
+        3
+      </span>
+      <span
+        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
+      >
+        4
+      </span>
+      <span
+        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
+      >
+        5
+      </span>
+      <span
+        class="w-10 px-0.5 text-center"
+      >
+        ...
+      </span>
+      <span
+        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
+      >
+        10
+      </span>
+    </div>
+    <button
+      class="flex items-center mr-2 text-gray-500 opacity-50 hover:text-gray-600 dark:hover:text-gray-200 focus:outline-none"
+    >
+      Next
+      <svg
+        class="ml-3"
+        fill="none"
+        height="20"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <line
+          x1="5"
+          x2="19"
+          y1="12"
+          y2="12"
+        />
+        <polyline
+          points="12 5 19 12 12 19"
+        />
+      </svg>
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Pagination renders correctly with basic setup of prevButton, pageButton and nextButton 1`] = `
+<DocumentFragment>
+  <div
+    class=""
+  >
+    <button
+      class=""
+    >
+      Previous
+    </button>
+    <div
+      class="flex items-center justify-center flex-grow"
+    >
+      <span
+        class=""
+      >
+        1
+      </span>
+      <span
+        class=""
+      >
+        2
+      </span>
+      <span
+        class=""
+      >
+        3
+      </span>
+      <span
+        class=""
+      >
+        4
+      </span>
+      <span
+        class=""
+      >
+        5
+      </span>
+      <span
+        class=""
+      >
+        ...
+      </span>
+      <span
+        class=""
+      >
+        10
+      </span>
+    </div>
+    <button
+      class=""
+    >
+      Next
+    </button>
+  </div>
+</DocumentFragment>
+`;

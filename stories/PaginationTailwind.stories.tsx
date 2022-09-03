@@ -41,7 +41,7 @@ const PaginationStory: Story<IPaginationProps> = (args) => {
           },
         )}
       >
-        <FiArrowLeft size={20} className={classNames("mr-3")} />
+        <FiArrowLeft size={20} className="mr-3" />
         Previous
       </Pagination.PrevButton>
 
@@ -65,7 +65,7 @@ const PaginationStory: Story<IPaginationProps> = (args) => {
         )}
       >
         Next
-        <FiArrowRight size={20} className={classNames("ml-3")} />
+        <FiArrowRight size={20} className="ml-3" />
       </Pagination.NextButton>
     </Pagination>
   );

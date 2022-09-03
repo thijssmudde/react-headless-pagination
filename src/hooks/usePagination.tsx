@@ -1,5 +1,5 @@
 import React from "react";
-import { IPaginationProps, IUsePagination } from "../Pagination.d";
+import { IPaginationProps, IUsePagination } from "../Pagination/Pagination.d";
 
 const usePagination = ({
   currentPage,
@@ -7,8 +7,8 @@ const usePagination = ({
   truncableText = "...",
   truncableClassName = "",
   totalPages,
-  edgePageCount = 2,
-  middlePagesSiblingCount = 1,
+  edgePageCount,
+  middlePagesSiblingCount,
 }: IPaginationProps): IUsePagination => {
   const pages = Array(totalPages)
     .fill(0)
@@ -39,10 +39,7 @@ const usePagination = ({
   };
 
   const previousPages = React.useMemo(() => {
-    if (isReachedToFirst) {
-      return [];
-    }
-    if (getAllPreviousPages().length < 1) {
+    if (isReachedToFirst || getAllPreviousPages().length < 1) {
       return [];
     }
     return pages
