@@ -4,8 +4,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Install modules
-      run: yarn
-    - name: Run tests
-      run: yarn test
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: yarn
+      - name: Run tests
+        run: yarn tsdx test --collectCoverage --coverageReporters 'cobertura'
+      - name: Code Coverage Summary
+        uses: irongut/CodeCoverageSummary@v1.3.0
