@@ -14,9 +14,9 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "NODE_ENV=production tsdx build",
-    "test": "tsdx test",
-    "test-coverage": "tsdx test --collectCoverage",
-    "test-coverage-html": "tsdx test --collectCoverage --coverageReporters 'html'",
+    "test": "tsdx test --watchAll ",
+    "test-coverage": "tsdx test --watchAll --collectCoverage",
+    "test-coverage-html": "tsdx test --watchAll --collectCoverage --coverageReporters 'html'",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",

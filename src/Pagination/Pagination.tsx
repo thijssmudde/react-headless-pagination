@@ -11,6 +11,7 @@ import {
 export const PrevButton: FC<ButtonProps> = ({
   className,
   children,
+  dataTestId,
   ...buttonProps
 }) => {
   const pagination: IPagination = React.useContext(PaginationContext);
@@ -26,6 +27,7 @@ export const PrevButton: FC<ButtonProps> = ({
       {...buttonProps}
       onClick={() => previous()}
       disabled={pagination.currentPage === 0}
+      data-testid={dataTestId}
     >
       {children}
     </button>
@@ -35,6 +37,7 @@ export const PrevButton: FC<ButtonProps> = ({
 export const NextButton: FC<ButtonProps> = ({
   className,
   children,
+  dataTestId,
   ...buttonProps
 }) => {
   const pagination: IPagination = React.useContext(PaginationContext);
@@ -50,6 +53,7 @@ export const NextButton: FC<ButtonProps> = ({
       {...buttonProps}
       onClick={() => next()}
       disabled={pagination.currentPage === pagination.pages.length - 1}
+      data-testid={dataTestId}
     >
       {children}
     </button>
@@ -66,31 +70,45 @@ const TruncableElement: FC<ITruncableElementProps> = ({ prev }) => {
   const {
     isPreviousTruncable,
     isNextTruncable,
-    truncableText = "...",
-    truncableClassName = "",
+    truncableText,
+    truncableClassName,
   } = pagination;
 
   return (isPreviousTruncable && prev === true) ||
     (isNextTruncable && !prev) ? (
-    <span className={truncableClassName}>{truncableText}</span>
+    <span className={truncableClassName || undefined}>{truncableText}</span>
   ) : null;
 };
 
 export const PageButton: FC<PageButtonProps> = ({
   className,
-  activeClassName = "",
-  inactiveClassName = "",
+  dataTestIdActive,
+  dataTestIdInactive,
+  activeClassName,
+  inactiveClassName,
 }) => {
   const pagination: IPagination = React.useContext(PaginationContext);
 
   const renderPageButton = (page: number) => (
     <span
       key={page}
-      className={classNames(className, {
-        [activeClassName]: pagination.currentPage + 1 === page,
-        [inactiveClassName]: pagination.currentPage + 1 !== page,
-      })}
+      data-testid={
+        classNames({
+          [`${dataTestIdActive}-page-button`]:
+            dataTestIdActive && pagination.currentPage + 1 === page,
+          [`${dataTestIdInactive}-page-button-${page}`]:
+            dataTestIdActive && pagination.currentPage + 1 !== page,
+        }) || undefined
+      }
       onClick={() => pagination.setCurrentPage(page - 1)}
+      className={
+        classNames(
+          className,
+          pagination.currentPage + 1 === page
+            ? activeClassName
+            : inactiveClassName,
+        ) || undefined
+      }
     >
       {page}
     </span>

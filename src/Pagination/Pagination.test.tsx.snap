@@ -41,14 +41,9 @@ exports[`Pagination renders correctly with advanced setup of prevButton, pageBut
         1
       </span>
       <span
-        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer bg-primary-50 dark:bg-opacity-0 text-primary-600 dark:text-white"
+        class="w-10 px-0.5 text-center"
       >
-        2
-      </span>
-      <span
-        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
-      >
-        3
+        ...
       </span>
       <span
         class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
@@ -59,6 +54,21 @@ exports[`Pagination renders correctly with advanced setup of prevButton, pageBut
         class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
       >
         5
+      </span>
+      <span
+        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer bg-primary-50 dark:bg-opacity-0 text-primary-600 dark:text-white"
+      >
+        6
+      </span>
+      <span
+        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
+      >
+        7
+      </span>
+      <span
+        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
+      >
+        8
       </span>
       <span
         class="w-10 px-0.5 text-center"
@@ -108,7 +118,7 @@ exports[`Pagination renders correctly with basic setup of prevButton, pageButton
     class=""
   >
     <button
-      class=""
+      data-testid="prev"
     >
       Previous
     </button>
@@ -116,43 +126,113 @@ exports[`Pagination renders correctly with basic setup of prevButton, pageButton
       class="flex items-center justify-center flex-grow"
     >
       <span
-        class=""
+        data-testid="inactive-page-button-1"
       >
         1
       </span>
-      <span
-        class=""
-      >
-        2
+      <span>
+        ...
       </span>
       <span
-        class=""
-      >
-        3
-      </span>
-      <span
-        class=""
+        data-testid="inactive-page-button-4"
       >
         4
       </span>
       <span
-        class=""
+        data-testid="inactive-page-button-5"
       >
         5
       </span>
       <span
-        class=""
+        data-testid="active-page-button"
       >
+        6
+      </span>
+      <span
+        data-testid="inactive-page-button-7"
+      >
+        7
+      </span>
+      <span
+        data-testid="inactive-page-button-8"
+      >
+        8
+      </span>
+      <span>
         ...
       </span>
       <span
-        class=""
+        data-testid="inactive-page-button-10"
       >
         10
       </span>
     </div>
     <button
-      class=""
+      data-testid="next"
+    >
+      Next
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Pagination renders correctly with different truncable text 1`] = `
+<DocumentFragment>
+  <div
+    class=""
+  >
+    <button
+      data-testid="prev"
+    >
+      Previous
+    </button>
+    <div
+      class="flex items-center justify-center flex-grow"
+    >
+      <span
+        data-testid="inactive-page-button-1"
+      >
+        1
+      </span>
+      <span>
+        ---
+      </span>
+      <span
+        data-testid="inactive-page-button-4"
+      >
+        4
+      </span>
+      <span
+        data-testid="inactive-page-button-5"
+      >
+        5
+      </span>
+      <span
+        data-testid="active-page-button"
+      >
+        6
+      </span>
+      <span
+        data-testid="inactive-page-button-7"
+      >
+        7
+      </span>
+      <span
+        data-testid="inactive-page-button-8"
+      >
+        8
+      </span>
+      <span>
+        ---
+      </span>
+      <span
+        data-testid="inactive-page-button-10"
+      >
+        10
+      </span>
+    </div>
+    <button
+      data-testid="next"
     >
       Next
     </button>

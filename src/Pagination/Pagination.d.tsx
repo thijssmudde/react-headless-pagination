@@ -31,14 +31,16 @@ interface IPagination extends IUsePagination {
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: string | React.ReactNode;
+  children?: string | React.ReactNode;
   className?: string;
+  dataTestId?: string;
 }
 
-interface PageButtonProps {
-  className?: string;
+interface PageButtonProps extends ButtonProps {
   activeClassName?: string;
   inactiveClassName?: string;
+  dataTestIdActive?: string;
+  dataTestIdInactive?: string;
 }
 
 export {
