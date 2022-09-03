@@ -1,5 +1,7 @@
 *.log
 .DS_Store
-node_modules
-dist
-storybook-static
+
+/node_modules
+/dist
+/storybook-static
+/coverage
