@@ -9,7 +9,7 @@ jobs:
         run: yarn
       - name: Run tests
         run: yarn tsdx test --collectCoverage --coverageReporters 'cobertura'
-     - name: OpenCover Badge Generator
+      - name: OpenCover Badge Generator
         uses: danpetitt/open-cover-badge-generator-action@v1.0.9
         with:
           path-to-opencover-xml: coverage/**/cobertura-coverage.xml
