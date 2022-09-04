@@ -16,7 +16,7 @@
     "start": "tsdx watch",
     "build": "NODE_ENV=production tsdx build",
     "test": "tsdx test --watchAll ",
-    "test-coverage": "tsdx test --watchAll --collectCoverage",
+    "test-coverage": "yarn tsdx test --collectCoverage --coverageReporters 'cobertura'",
     "test-coverage-html": "tsdx test --watchAll --collectCoverage --coverageReporters 'html'",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
@@ -34,7 +34,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "tsdx lint && yarn test-coverage"
     }
   },
   "module": "dist/react-headless-pagination.esm.js",

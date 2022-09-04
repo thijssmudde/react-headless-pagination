@@ -9,11 +9,15 @@ jobs:
         run: yarn
       - name: Run tests
         run: yarn tsdx test --collectCoverage --coverageReporters 'cobertura'
-      - name: OpenCover Badge Generator
-        uses: danpetitt/open-cover-badge-generator-action@v1.0.9
+      - name: Code Coverage Summary
+        uses: irongut/CodeCoverageSummary@v1.3.0
         with:
-          path-to-opencover-xml: coverage/**/cobertura-coverage.xml
-          path-to-badges: ./
-          minimum-coverage: 90
-          commit-badges: false
-          repo-token: ${{ secrets.CI_TOKEN }}
+          filename: coverage/**/cobertura-coverage.xml
+          badge: true
+          fail_below_min: true
+          format: markdown
+          hide_branch_rate: false
+          hide_complexity: true
+          indicators: true
+          output: both
+          thresholds: "70 90"
