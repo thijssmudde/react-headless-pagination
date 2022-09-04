@@ -4,7 +4,11 @@ Do you want to design your own pagination component, but do not want to worry ab
 
 [![npm](https://img.shields.io/npm/v/react-headless-pagination)](https://www.npmjs.com/package/react-headless-pagination)
 ![Jest unit tests](https://github.com/fullhdpixel/react-headless-pagination/actions/workflows/main.yml/badge.svg)
-![code coverage](https://img.shields.io/badge/Code%20Coverage-100%25-success?style=flat)
+
+[![Line Coverage Status](./coverage-badge-line.svg)](https://github.com/fullhdpixel/react-headless-pagination/)
+
+<!-- ![code coverage](https://img.shields.io/badge/Code%20Coverage-100%25-success?style=flat) -->
+
 [![issues](https://img.shields.io/github/issues/fullhdpixel/react-headless-pagination)](https://github.com/fullhdpixel/react-headless-pagination/issues)
 [![stargazers](https://img.shields.io/github/stars/fullhdpixel/react-headless-pagination)](https://github.com/fullhdpixel/react-headless-pagination)
 

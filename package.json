@@ -1,10 +1,11 @@
 {
   "name": "react-headless-pagination",
   "author": "Thijs Smudde",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "description": "Headless ReactJS component for pagination. Built using hooks and tested with Jest.",
   "files": [
     "dist"
   ],
