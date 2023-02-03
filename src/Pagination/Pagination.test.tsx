@@ -2,7 +2,7 @@ import React from "react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { render, screen } from "@testing-library/react";
 import { Pagination } from "./Pagination";
-import { IPaginationProps } from "./Pagination.d";
+import { IPaginationProps } from "../types/types";
 
 const setupPagination = ({
   currentPage = 5,
