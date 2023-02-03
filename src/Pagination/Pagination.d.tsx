@@ -1,21 +1,21 @@
 import { ButtonHTMLAttributes } from "react";
 
-interface IBasePaginationProps {
+type IBasePaginationProps = {
   currentPage: number;
   setCurrentPage: (page: number) => void;
   truncableText?: string;
   truncableClassName?: string;
-}
+};
 
-interface IPaginationProps extends IBasePaginationProps {
+type IPaginationProps = IBasePaginationProps & {
   totalPages: number;
   edgePageCount: number;
   middlePagesSiblingCount: number;
   className?: string;
   children?: React.ReactNode;
-}
+};
 
-interface IUsePagination extends IBasePaginationProps {
+type IUsePagination = IBasePaginationProps & {
   pages: number[];
   hasPreviousPage: boolean;
   hasNextPage: boolean;
@@ -24,24 +24,28 @@ interface IUsePagination extends IBasePaginationProps {
   middlePages: number[];
   isNextTruncable: boolean;
   nextPages: number[];
-}
+};
 
-interface IPagination extends IUsePagination {
+type IPagination = IUsePagination & {
   setCurrentPage: (page: number) => void;
-}
+};
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children?: string | React.ReactNode;
   className?: string;
   dataTestId?: string;
-}
+};
 
-interface PageButtonProps extends ButtonProps {
+type PageButtonProps = ButtonProps & {
+  /**
+   * Provide a custom ReactElement (e.g. Next/Link)
+   */
+  as?: React.ReactElement;
   activeClassName?: string;
   inactiveClassName?: string;
   dataTestIdActive?: string;
   dataTestIdInactive?: string;
-}
+};
 
 export {
   IPaginationProps,

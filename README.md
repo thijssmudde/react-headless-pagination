@@ -37,26 +37,26 @@ const handlePageChange = (page: number) => {
 
 return (
   <>
-    Current page: {page}
+    Current page: {page + 1}
     <Pagination
+      {...args}
       currentPage={page}
       setCurrentPage={handlePageChange}
-      totalPages={10}
-      edgePageCount={2}
-      middlePagesSiblingCount={2}
       className=""
       truncableText="..."
       truncableClassName=""
     >
       <Pagination.PrevButton className="">Previous</Pagination.PrevButton>
 
-      <div className="flex items-center justify-center flex-grow">
-        <Pagination.PageButton
-          activeClassName=""
-          inactiveClassName=""
-          className=""
-        />
-      </div>
+      <nav className="flex justify-center flex-grow">
+        <ul className="flex items-center">
+          <Pagination.PageButton
+            activeClassName=""
+            inactiveClassName=""
+            className=""
+          />
+        </ul>
+      </nav>
 
       <Pagination.NextButton className="">Next</Pagination.NextButton>
     </Pagination>
@@ -146,24 +146,43 @@ Styles for the next button.
 
 ## Pagination.PageButton props
 
+### `as`
+
+Type: `React.ReactElement`
+Default: <a />
+
+Provide a custom React Element, such as a `next/link` component.
+
 ### `className`
 
 Type: `string`
 
+### `dataTestIdActive`
+
+Type: `string`
+
+data-testid in case the page button is active.
+
+### `dataTestIdInactive`
+
+Type: `string`
+
+data-testid in case the page button is active.
+
 ### `activeClassName`
 
-Type: `boolean`
+Type: `string`
 
 Styles in case the page button is active.
 
 ### `inactiveClassName`
 
-Type: `boolean`
+Type: `string`
 
 Styles in case the page button is inactive.
 
 ## Authors
 
-- [fullhdpixel](https://github.com/fullhdpixel)
+- [Thijs Smudde](https://github.com/thijssmudde)
 
 Taken inspiration from [@makotot/paginated](https://github.com/makotot/GhostUI).

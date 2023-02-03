@@ -32,13 +32,15 @@ const PaginationStory: Story<IPaginationProps> = (args) => {
       >
         <Pagination.PrevButton className="">Previous</Pagination.PrevButton>
 
-        <div className="flex items-center justify-center flex-grow">
-          <Pagination.PageButton
-            activeClassName=""
-            inactiveClassName=""
-            className=""
-          />
-        </div>
+        <nav className="flex justify-center flex-grow">
+          <ul className="flex items-center">
+            <Pagination.PageButton
+              activeClassName=""
+              inactiveClassName=""
+              className=""
+            />
+          </ul>
+        </nav>
 
         <Pagination.NextButton className="">Next</Pagination.NextButton>
       </Pagination>

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import classNames from "classnames";
 import usePagination from "../Hooks/usePagination";
 import {
@@ -8,13 +8,13 @@ import {
   PageButtonProps,
 } from "./Pagination.d";
 
-export const PrevButton: FC<ButtonProps> = ({
+export const PrevButton = ({
   className,
   children,
   dataTestId,
   ...buttonProps
-}) => {
-  const pagination: IPagination = React.useContext(PaginationContext);
+}: ButtonProps) => {
+  const pagination = React.useContext(PaginationContext);
   const previous = () => {
     if (pagination.currentPage + 1 > 1) {
       pagination.setCurrentPage(pagination.currentPage - 1);
@@ -34,13 +34,13 @@ export const PrevButton: FC<ButtonProps> = ({
   );
 };
 
-export const NextButton: FC<ButtonProps> = ({
+export const NextButton = ({
   className,
   children,
   dataTestId,
   ...buttonProps
-}) => {
-  const pagination: IPagination = React.useContext(PaginationContext);
+}: ButtonProps) => {
+  const pagination = React.useContext(PaginationContext);
   const next = () => {
     if (pagination.currentPage + 1 < pagination.pages.length) {
       pagination.setCurrentPage(pagination.currentPage + 1);
@@ -60,11 +60,11 @@ export const NextButton: FC<ButtonProps> = ({
   );
 };
 
-interface ITruncableElementProps {
+type ITruncableElementProps = {
   prev?: boolean;
-}
+};
 
-const TruncableElement: FC<ITruncableElementProps> = ({ prev }) => {
+const TruncableElement = ({ prev }: ITruncableElementProps) => {
   const pagination: IPagination = React.useContext(PaginationContext);
 
   const {
@@ -76,42 +76,43 @@ const TruncableElement: FC<ITruncableElementProps> = ({ prev }) => {
 
   return (isPreviousTruncable && prev === true) ||
     (isNextTruncable && !prev) ? (
-    <span className={truncableClassName || undefined}>{truncableText}</span>
-  ) : null;
+      <li className={truncableClassName || undefined}>{truncableText}</li>
+    ) : null;
 };
 
-export const PageButton: FC<PageButtonProps> = ({
+export const PageButton = ({
+  as = <a />,
   className,
   dataTestIdActive,
   dataTestIdInactive,
   activeClassName,
   inactiveClassName,
-}) => {
+}: PageButtonProps) => {
   const pagination: IPagination = React.useContext(PaginationContext);
 
   const renderPageButton = (page: number) => (
-    <span
-      key={page}
-      data-testid={
-        classNames({
-          [`${dataTestIdActive}-page-button`]:
-            dataTestIdActive && pagination.currentPage + 1 === page,
-          [`${dataTestIdInactive}-page-button-${page}`]:
-            dataTestIdActive && pagination.currentPage + 1 !== page,
-        }) || undefined
-      }
-      onClick={() => pagination.setCurrentPage(page - 1)}
-      className={
-        classNames(
+    <li key={page}>
+      <as.type
+        data-testid={
+          classNames({
+            [`${dataTestIdActive}`]:
+              dataTestIdActive && pagination.currentPage + 1 === page,
+            [`${dataTestIdInactive}-${page}`]:
+              dataTestIdActive && pagination.currentPage + 1 !== page,
+          }) || undefined
+        }
+        onClick={() => pagination.setCurrentPage(page - 1)}
+        className={classNames(
           className,
           pagination.currentPage + 1 === page
             ? activeClassName
             : inactiveClassName,
-        ) || undefined
-      }
-    >
-      {page}
-    </span>
+        )}
+        {...as.props}
+      >
+        {page}
+      </as.type>
+    </li>
   );
 
   return (
@@ -127,7 +128,7 @@ export const PageButton: FC<PageButtonProps> = ({
 
 const defaultState: IPagination = {
   currentPage: 0,
-  setCurrentPage: () => {},
+  setCurrentPage: () => { },
   truncableText: "...",
   truncableClassName: "",
   pages: [],
@@ -141,14 +142,17 @@ const defaultState: IPagination = {
 };
 
 const PaginationContext: React.Context<IPagination> =
-  React.createContext(defaultState);
+  React.createContext<IPagination>(defaultState);
 
-export const Pagination = (paginationProps: IPaginationProps) => {
+export const Pagination = ({
+  dataTestId,
+  ...paginationProps
+}: IPaginationProps & { dataTestId?: string }) => {
   const pagination = usePagination(paginationProps);
 
   return (
     <PaginationContext.Provider value={pagination}>
-      <div className={paginationProps.className}>
+      <div className={paginationProps.className} data-testid={dataTestId}>
         {paginationProps.children}
       </div>
     </PaginationContext.Provider>
