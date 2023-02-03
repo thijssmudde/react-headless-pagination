@@ -6,7 +6,7 @@ import {
   IPaginationProps,
   ButtonProps,
   PageButtonProps,
-} from "./Pagination.d";
+} from "../types/types";
 
 export const PrevButton = ({
   className,
