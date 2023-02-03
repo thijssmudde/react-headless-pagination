@@ -1,7 +1,7 @@
 {
   "name": "react-headless-pagination",
   "author": "Thijs Smudde",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -31,11 +31,6 @@
   },
   "peerDependencies": {
     "react": ">=16"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint && yarn test-coverage"
-    }
   },
   "module": "dist/react-headless-pagination.esm.js",
   "size-limit": [

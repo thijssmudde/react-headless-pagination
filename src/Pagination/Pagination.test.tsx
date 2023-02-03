@@ -6,7 +6,7 @@ import { IPaginationProps } from "./Pagination.d";
 
 const setupPagination = ({
   currentPage = 5,
-  setCurrentPage = () => {},
+  setCurrentPage = () => { },
   className = "",
   truncableText = "...",
   truncableClassName = "",
@@ -88,6 +88,30 @@ describe("Pagination", () => {
     });
 
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("renders correctly with custom page button", () => {
+    const { asFragment } = setupPagination({
+      children: (
+        <>
+          <Pagination.PrevButton>Previous</Pagination.PrevButton>
+
+          <div className="flex items-center justify-center flex-grow">
+            <Pagination.PageButton
+              as={<span />}
+              dataTestIdActive="page-button-custom"
+            />
+          </div>
+
+          <Pagination.NextButton>Next</Pagination.NextButton>
+        </>
+      ),
+    });
+
+    expect(asFragment()).toMatchSnapshot();
+
+    const headingElement = screen.getByTestId("page-button-custom-page-button");
+    expect(headingElement.tagName.toLowerCase()).toEqual("span");
   });
 
   it("clicking on previous calls mockSetCurrentPage with currentPage - 1", () => {
