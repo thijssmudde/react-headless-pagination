@@ -32,55 +32,73 @@ exports[`Pagination renders correctly with advanced setup of prevButton, pageBut
       </svg>
       Previous
     </button>
-    <div
-      class="flex items-center justify-center flex-grow"
+    <nav
+      class="flex justify-center flex-grow"
     >
-      <button
-        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
+      <ul
+        class="flex items-center"
       >
-        1
-      </button>
-      <span
-        class="w-10 px-0.5 text-center"
-      >
-        ...
-      </span>
-      <button
-        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
-      >
-        4
-      </button>
-      <button
-        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
-      >
-        5
-      </button>
-      <button
-        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer bg-primary-50 dark:bg-opacity-0 text-primary-600 dark:text-white"
-      >
-        6
-      </button>
-      <button
-        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
-      >
-        7
-      </button>
-      <button
-        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
-      >
-        8
-      </button>
-      <span
-        class="w-10 px-0.5 text-center"
-      >
-        ...
-      </span>
-      <button
-        class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
-      >
-        10
-      </button>
-    </div>
+        <li>
+          <a
+            class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
+          >
+            1
+          </a>
+        </li>
+        <li
+          class="w-10 px-0.5 text-center"
+        >
+          ...
+        </li>
+        <li>
+          <a
+            class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
+          >
+            4
+          </a>
+        </li>
+        <li>
+          <a
+            class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
+          >
+            5
+          </a>
+        </li>
+        <li>
+          <a
+            class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer bg-primary-50 dark:bg-opacity-0 text-primary-600 dark:text-white"
+          >
+            6
+          </a>
+        </li>
+        <li>
+          <a
+            class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
+          >
+            7
+          </a>
+        </li>
+        <li>
+          <a
+            class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
+          >
+            8
+          </a>
+        </li>
+        <li
+          class="w-10 px-0.5 text-center"
+        >
+          ...
+        </li>
+        <li>
+          <a
+            class="flex items-center justify-center h-10 w-10 rounded-full cursor-pointer text-gray-500"
+          >
+            10
+          </a>
+        </li>
+      </ul>
+    </nav>
     <button
       class="flex items-center mr-2 text-gray-500 opacity-50 hover:text-gray-600 dark:hover:text-gray-200 focus:outline-none"
     >
@@ -122,51 +140,76 @@ exports[`Pagination renders correctly with basic setup of prevButton, pageButton
     >
       Previous
     </button>
-    <div
-      class="flex items-center justify-center flex-grow"
+    <nav
+      class="flex justify-center flex-grow"
     >
-      <button
-        data-testid="inactive-page-button-1"
+      <ul
+        class="flex items-center"
       >
-        1
-      </button>
-      <span>
-        ...
-      </span>
-      <button
-        data-testid="inactive-page-button-4"
-      >
-        4
-      </button>
-      <button
-        data-testid="inactive-page-button-5"
-      >
-        5
-      </button>
-      <button
-        data-testid="active-page-button"
-      >
-        6
-      </button>
-      <button
-        data-testid="inactive-page-button-7"
-      >
-        7
-      </button>
-      <button
-        data-testid="inactive-page-button-8"
-      >
-        8
-      </button>
-      <span>
-        ...
-      </span>
-      <button
-        data-testid="inactive-page-button-10"
-      >
-        10
-      </button>
-    </div>
+        <li>
+          <a
+            class=""
+            data-testid="inactive-page-button-1"
+          >
+            1
+          </a>
+        </li>
+        <li>
+          ...
+        </li>
+        <li>
+          <a
+            class=""
+            data-testid="inactive-page-button-4"
+          >
+            4
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+            data-testid="inactive-page-button-5"
+          >
+            5
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+            data-testid="active-page-button"
+          >
+            6
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+            data-testid="inactive-page-button-7"
+          >
+            7
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+            data-testid="inactive-page-button-8"
+          >
+            8
+          </a>
+        </li>
+        <li>
+          ...
+        </li>
+        <li>
+          <a
+            class=""
+            data-testid="inactive-page-button-10"
+          >
+            10
+          </a>
+        </li>
+      </ul>
+    </nav>
     <button
       data-testid="next"
     >
@@ -187,47 +230,68 @@ exports[`Pagination renders correctly with custom page button 1`] = `
     <div
       class="flex items-center justify-center flex-grow"
     >
-      <span
-        data-testid="undefined-page-button-1"
-      >
-        1
-      </span>
-      <span>
+      <li>
+        <span
+          class=""
+          data-testid="undefined-1"
+        >
+          1
+        </span>
+      </li>
+      <li>
         ...
-      </span>
-      <span
-        data-testid="undefined-page-button-4"
-      >
-        4
-      </span>
-      <span
-        data-testid="undefined-page-button-5"
-      >
-        5
-      </span>
-      <span
-        data-testid="page-button-custom-page-button"
-      >
-        6
-      </span>
-      <span
-        data-testid="undefined-page-button-7"
-      >
-        7
-      </span>
-      <span
-        data-testid="undefined-page-button-8"
-      >
-        8
-      </span>
-      <span>
+      </li>
+      <li>
+        <span
+          class=""
+          data-testid="undefined-4"
+        >
+          4
+        </span>
+      </li>
+      <li>
+        <span
+          class=""
+          data-testid="undefined-5"
+        >
+          5
+        </span>
+      </li>
+      <li>
+        <span
+          class=""
+          data-testid="page-button-custom"
+        >
+          6
+        </span>
+      </li>
+      <li>
+        <span
+          class=""
+          data-testid="undefined-7"
+        >
+          7
+        </span>
+      </li>
+      <li>
+        <span
+          class=""
+          data-testid="undefined-8"
+        >
+          8
+        </span>
+      </li>
+      <li>
         ...
-      </span>
-      <span
-        data-testid="undefined-page-button-10"
-      >
-        10
-      </span>
+      </li>
+      <li>
+        <span
+          class=""
+          data-testid="undefined-10"
+        >
+          10
+        </span>
+      </li>
     </div>
     <button>
       Next
@@ -246,51 +310,76 @@ exports[`Pagination renders correctly with different truncable text 1`] = `
     >
       Previous
     </button>
-    <div
-      class="flex items-center justify-center flex-grow"
+    <nav
+      class="flex justify-center flex-grow"
     >
-      <button
-        data-testid="inactive-page-button-1"
+      <ul
+        class="flex items-center"
       >
-        1
-      </button>
-      <span>
-        ---
-      </span>
-      <button
-        data-testid="inactive-page-button-4"
-      >
-        4
-      </button>
-      <button
-        data-testid="inactive-page-button-5"
-      >
-        5
-      </button>
-      <button
-        data-testid="active-page-button"
-      >
-        6
-      </button>
-      <button
-        data-testid="inactive-page-button-7"
-      >
-        7
-      </button>
-      <button
-        data-testid="inactive-page-button-8"
-      >
-        8
-      </button>
-      <span>
-        ---
-      </span>
-      <button
-        data-testid="inactive-page-button-10"
-      >
-        10
-      </button>
-    </div>
+        <li>
+          <a
+            class=""
+            data-testid="inactive-page-button-1"
+          >
+            1
+          </a>
+        </li>
+        <li>
+          ---
+        </li>
+        <li>
+          <a
+            class=""
+            data-testid="inactive-page-button-4"
+          >
+            4
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+            data-testid="inactive-page-button-5"
+          >
+            5
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+            data-testid="active-page-button"
+          >
+            6
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+            data-testid="inactive-page-button-7"
+          >
+            7
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+            data-testid="inactive-page-button-8"
+          >
+            8
+          </a>
+        </li>
+        <li>
+          ---
+        </li>
+        <li>
+          <a
+            class=""
+            data-testid="inactive-page-button-10"
+          >
+            10
+          </a>
+        </li>
+      </ul>
+    </nav>
     <button
       data-testid="next"
     >

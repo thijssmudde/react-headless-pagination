@@ -17,12 +17,17 @@ const setupPagination = ({
     <>
       <Pagination.PrevButton dataTestId="prev">Previous</Pagination.PrevButton>
 
-      <div className="flex items-center justify-center flex-grow">
-        <Pagination.PageButton
-          dataTestIdActive="active"
-          dataTestIdInactive="inactive"
-        />
-      </div>
+      <nav className="flex justify-center flex-grow">
+        <ul className="flex items-center">
+          <Pagination.PageButton
+            dataTestIdActive="active-page-button"
+            dataTestIdInactive="inactive-page-button"
+            activeClassName=""
+            inactiveClassName=""
+            className=""
+          />
+        </ul>
+      </nav>
 
       <Pagination.NextButton dataTestId="next">Next</Pagination.NextButton>
     </>
@@ -69,15 +74,17 @@ describe("Pagination", () => {
             Previous
           </Pagination.PrevButton>
 
-          <div className="flex items-center justify-center flex-grow">
-            <Pagination.PageButton
-              activeClassName="bg-primary-50 dark:bg-opacity-0 text-primary-600 dark:text-white"
-              inactiveClassName="text-gray-500"
-              className={
-                "flex items-center justify-center h-10 w-10 rounded-full cursor-pointer"
-              }
-            />
-          </div>
+          <nav className="flex justify-center flex-grow">
+            <ul className="flex items-center">
+              <Pagination.PageButton
+                activeClassName="bg-primary-50 dark:bg-opacity-0 text-primary-600 dark:text-white"
+                inactiveClassName="text-gray-500"
+                className={
+                  "flex items-center justify-center h-10 w-10 rounded-full cursor-pointer"
+                }
+              />
+            </ul>
+          </nav>
 
           <Pagination.NextButton className="flex items-center mr-2 text-gray-500 opacity-50 hover:text-gray-600 dark:hover:text-gray-200 focus:outline-none">
             Next
@@ -110,7 +117,7 @@ describe("Pagination", () => {
 
     expect(asFragment()).toMatchSnapshot();
 
-    const headingElement = screen.getByTestId("page-button-custom-page-button");
+    const headingElement = screen.getByTestId("page-button-custom");
     expect(headingElement.tagName.toLowerCase()).toEqual("span");
   });
 

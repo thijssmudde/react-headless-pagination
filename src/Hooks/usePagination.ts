@@ -1,5 +1,5 @@
-import React from "react";
 import { IPaginationProps, IUsePagination } from "../Pagination/Pagination.d";
+import React from "react";
 
 const usePagination = ({
   currentPage,

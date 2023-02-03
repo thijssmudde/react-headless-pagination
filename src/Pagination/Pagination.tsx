@@ -76,12 +76,12 @@ const TruncableElement = ({ prev }: ITruncableElementProps) => {
 
   return (isPreviousTruncable && prev === true) ||
     (isNextTruncable && !prev) ? (
-      <span className={truncableClassName || undefined}>{truncableText}</span>
+      <li className={truncableClassName || undefined}>{truncableText}</li>
     ) : null;
 };
 
 export const PageButton = ({
-  as = <button />,
+  as = <a />,
   className,
   dataTestIdActive,
   dataTestIdInactive,
@@ -91,29 +91,28 @@ export const PageButton = ({
   const pagination: IPagination = React.useContext(PaginationContext);
 
   const renderPageButton = (page: number) => (
-    <as.type
-      key={page}
-      data-testid={
-        classNames({
-          [`${dataTestIdActive}-page-button`]:
-            dataTestIdActive && pagination.currentPage + 1 === page,
-          [`${dataTestIdInactive}-page-button-${page}`]:
-            dataTestIdActive && pagination.currentPage + 1 !== page,
-        }) || undefined
-      }
-      onClick={() => pagination.setCurrentPage(page - 1)}
-      className={
-        classNames(
+    <li key={page}>
+      <as.type
+        data-testid={
+          classNames({
+            [`${dataTestIdActive}`]:
+              dataTestIdActive && pagination.currentPage + 1 === page,
+            [`${dataTestIdInactive}-${page}`]:
+              dataTestIdActive && pagination.currentPage + 1 !== page,
+          }) || undefined
+        }
+        onClick={() => pagination.setCurrentPage(page - 1)}
+        className={classNames(
           className,
           pagination.currentPage + 1 === page
             ? activeClassName
             : inactiveClassName,
-        ) || undefined
-      }
-      {...as.props}
-    >
-      {page}
-    </as.type>
+        )}
+        {...as.props}
+      >
+        {page}
+      </as.type>
+    </li>
   );
 
   return (
@@ -145,12 +144,15 @@ const defaultState: IPagination = {
 const PaginationContext: React.Context<IPagination> =
   React.createContext<IPagination>(defaultState);
 
-export const Pagination = (paginationProps: IPaginationProps) => {
+export const Pagination = ({
+  dataTestId,
+  ...paginationProps
+}: IPaginationProps & { dataTestId?: string }) => {
   const pagination = usePagination(paginationProps);
 
   return (
     <PaginationContext.Provider value={pagination}>
-      <div className={paginationProps.className}>
+      <div className={paginationProps.className} data-testid={dataTestId}>
         {paginationProps.children}
       </div>
     </PaginationContext.Provider>

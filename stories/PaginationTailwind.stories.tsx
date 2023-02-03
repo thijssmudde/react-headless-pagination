@@ -45,15 +45,17 @@ const PaginationStory: Story<IPaginationProps> = (args) => {
         Previous
       </Pagination.PrevButton>
 
-      <div className="flex items-center justify-center flex-grow">
-        <Pagination.PageButton
-          activeClassName="bg-primary-50 dark:bg-opacity-0 text-primary-600 dark:text-white"
-          inactiveClassName="text-gray-500"
-          className={
-            "flex items-center justify-center h-10 w-10 rounded-full cursor-pointer"
-          }
-        />
-      </div>
+      <nav className="flex justify-center flex-grow">
+        <ul className="flex items-center">
+          <Pagination.PageButton
+            activeClassName="bg-primary-50 dark:bg-opacity-0 text-primary-600 dark:text-white"
+            inactiveClassName="text-gray-500"
+            className={
+              "flex items-center justify-center h-10 w-10 rounded-full cursor-pointer"
+            }
+          />
+        </ul>
+      </nav>
 
       <Pagination.NextButton
         className={classNames(
