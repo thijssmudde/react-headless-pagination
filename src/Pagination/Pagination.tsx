@@ -12,6 +12,7 @@ export const PrevButton = ({
   className,
   children,
   dataTestId,
+  as = <button />,
   ...buttonProps
 }: ButtonProps) => {
   const pagination = React.useContext(PaginationContext);
@@ -22,15 +23,16 @@ export const PrevButton = ({
   };
 
   return (
-    <button
-      className={className}
+    <as.type
       {...buttonProps}
+      {...as.props}
+      className={classNames(className, as.props.className)}
       onClick={() => previous()}
       disabled={pagination.currentPage === 0}
       data-testid={dataTestId}
     >
       {children}
-    </button>
+    </as.type>
   );
 };
 
@@ -38,6 +40,7 @@ export const NextButton = ({
   className,
   children,
   dataTestId,
+  as = <button />,
   ...buttonProps
 }: ButtonProps) => {
   const pagination = React.useContext(PaginationContext);
@@ -48,15 +51,16 @@ export const NextButton = ({
   };
 
   return (
-    <button
-      className={className}
+    <as.type
       {...buttonProps}
+      {...as.props}
+      className={classNames(className, as.props.className)}
       onClick={() => next()}
       disabled={pagination.currentPage === pagination.pages.length - 1}
       data-testid={dataTestId}
     >
       {children}
-    </button>
+    </as.type>
   );
 };
 

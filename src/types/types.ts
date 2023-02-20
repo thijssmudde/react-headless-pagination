@@ -31,6 +31,7 @@ type IPagination = IUsePagination & {
 };
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  as?: React.ReactElement;
   children?: string | React.ReactNode;
   className?: string;
   dataTestId?: string;

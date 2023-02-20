@@ -143,6 +143,7 @@ exports[`Pagination renders correctly with basic setup of prevButton, pageButton
     class=""
   >
     <button
+      class=""
       data-testid="prev"
     >
       Previous
@@ -225,6 +226,7 @@ exports[`Pagination renders correctly with basic setup of prevButton, pageButton
       </ul>
     </nav>
     <button
+      class=""
       data-testid="next"
     >
       Next
@@ -238,7 +240,9 @@ exports[`Pagination renders correctly with custom page button 1`] = `
   <div
     class=""
   >
-    <button>
+    <button
+      class=""
+    >
       Previous
     </button>
     <div
@@ -314,7 +318,9 @@ exports[`Pagination renders correctly with custom page button 1`] = `
         </span>
       </li>
     </div>
-    <button>
+    <button
+      class=""
+    >
       Next
     </button>
   </div>
@@ -327,6 +333,7 @@ exports[`Pagination renders correctly with different truncable text 1`] = `
     class=""
   >
     <button
+      class=""
       data-testid="prev"
     >
       Previous
@@ -409,6 +416,7 @@ exports[`Pagination renders correctly with different truncable text 1`] = `
       </ul>
     </nav>
     <button
+      class=""
       data-testid="next"
     >
       Next
