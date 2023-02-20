@@ -1,12 +1,12 @@
 import React from "react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { Pagination } from "./Pagination";
 import { IPaginationProps } from "../types/types";
 
 const setupPagination = ({
   currentPage = 5,
-  setCurrentPage = () => { },
+  setCurrentPage = () => {},
   className = "",
   truncableText = "...",
   truncableClassName = "",
@@ -167,5 +167,26 @@ describe("Pagination", () => {
     screen.getByTestId("inactive-page-button-10").click();
 
     expect(mockSetCurrentPage).toHaveBeenCalledWith(9);
+  });
+
+  it("pressing enter when focused on page button fires setCurrentPage", () => {
+    const mockSetCurrentPage = jest.fn();
+
+    setupPagination({
+      currentPage: 5,
+      totalPages: 10,
+      setCurrentPage: mockSetCurrentPage,
+    });
+
+    const pageButton4 = screen.getByText("4");
+    pageButton4.focus();
+
+    fireEvent.keyPress(pageButton4, {
+      key: "Enter",
+      code: "Enter",
+      charCode: 13,
+    });
+
+    expect(mockSetCurrentPage).toHaveBeenCalledWith(3);
   });
 });

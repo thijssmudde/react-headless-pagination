@@ -34,7 +34,7 @@ const PaginationStory: Story<IPaginationProps> = (args) => {
     >
       <Pagination.PrevButton
         className={classNames(
-          "flex items-center mr-2 text-gray-500 hover:text-gray-600 dark:hover:text-gray-200 focus:outline-none",
+          "flex items-center mr-2 text-gray-500 hover:text-gray-600 dark:hover:text-gray-200",
           {
             "cursor-pointer": page !== 0,
             "opacity-50": page === 0,
@@ -51,7 +51,7 @@ const PaginationStory: Story<IPaginationProps> = (args) => {
             activeClassName="bg-primary-50 dark:bg-opacity-0 text-primary-600 dark:text-white"
             inactiveClassName="text-gray-500"
             className={
-              "flex items-center justify-center h-10 w-10 rounded-full cursor-pointer"
+              "flex items-center justify-center hover:text-primary-600 focus:font-bold focus:text-primary-600 focus:outline-none h-10 w-10 rounded-full cursor-pointer"
             }
           />
         </ul>
@@ -59,7 +59,7 @@ const PaginationStory: Story<IPaginationProps> = (args) => {
 
       <Pagination.NextButton
         className={classNames(
-          "flex items-center mr-2 text-gray-500 hover:text-gray-600 dark:hover:text-gray-200 focus:outline-none",
+          "flex items-center mr-2 text-gray-500 hover:text-gray-600 dark:hover:text-gray-200",
           {
             "cursor-pointer": page !== args.totalPages - 1,
             "opacity-50": page === args.totalPages - 1,

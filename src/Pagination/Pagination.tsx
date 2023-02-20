@@ -76,8 +76,8 @@ const TruncableElement = ({ prev }: ITruncableElementProps) => {
 
   return (isPreviousTruncable && prev === true) ||
     (isNextTruncable && !prev) ? (
-      <li className={truncableClassName || undefined}>{truncableText}</li>
-    ) : null;
+    <li className={truncableClassName || undefined}>{truncableText}</li>
+  ) : null;
 };
 
 export const PageButton = ({
@@ -101,6 +101,12 @@ export const PageButton = ({
               dataTestIdActive && pagination.currentPage + 1 !== page,
           }) || undefined
         }
+        tabIndex={0}
+        onKeyPress={(event: React.KeyboardEvent) => {
+          if (event.key === "Enter") {
+            pagination.setCurrentPage(page - 1);
+          }
+        }}
         onClick={() => pagination.setCurrentPage(page - 1)}
         className={classNames(
           className,
@@ -128,7 +134,7 @@ export const PageButton = ({
 
 const defaultState: IPagination = {
   currentPage: 0,
-  setCurrentPage: () => { },
+  setCurrentPage: () => {},
   truncableText: "...",
   truncableClassName: "",
   pages: [],
