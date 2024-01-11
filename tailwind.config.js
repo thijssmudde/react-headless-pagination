@@ -1,9 +1,6 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: "jit",
-  purge: {
-    enabled: true,
-    content: ["./stories/**/*.tsx"],
-  },
+  content: ["./stories/**/*.tsx"],
   darkMode: "class", // or 'media' or 'class'
   theme: {
     colors: {
@@ -36,15 +33,6 @@ module.exports = {
       h1: ["72px", "90px"],
     },
     extend: {},
-    breakpointsInspector: {
-      position: ["bottom", "right"],
-    },
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [
-    require("@tailwindcss/forms"),
-    require("tailwindcss-breakpoints-inspector"),
-  ],
+  plugins: [],
 };

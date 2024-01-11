@@ -1,10 +1,10 @@
 import React from "react";
-import { Meta, Story } from "@storybook/react";
-import { Pagination, IPaginationProps } from "../src";
 import clsx from "clsx";
+import { Meta, Story } from "@storybook/react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { Pagination, IPaginationProps } from "../src";
 
-import "./tailwind.css";
+import "./tailwind_output.css";
 
 const meta: Meta = {
   title: "Pagination Tailwind",

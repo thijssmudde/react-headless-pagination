@@ -4,3 +4,4 @@
 /node_modules
 /dist
 /storybook-static
+/stories/tailwind_output.css

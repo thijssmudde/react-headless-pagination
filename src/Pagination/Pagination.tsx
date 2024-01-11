@@ -98,8 +98,8 @@ const TruncableElement = ({ prev }: ITruncableElementProps) => {
 
   return (isPreviousTruncable && prev === true) ||
     (isNextTruncable && !prev) ? (
-    <li className={truncableClassName || undefined}>{truncableText}</li>
-  ) : null;
+      <li className={truncableClassName || undefined}>{truncableText}</li>
+    ) : null;
 };
 
 export const PageButton = ({
