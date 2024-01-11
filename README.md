@@ -181,3 +181,23 @@ Styles in case the page button is inactive.
 - [Thijs Smudde](https://github.com/thijssmudde)
 
 Taken inspiration from [@makotot/paginated](https://github.com/makotot/GhostUI).
+
+## Contributing
+
+PR's are always welcomed.
+
+- Clone
+
+To contribute to this project, start by cloning the repository to your local machine.
+
+- Installation with Yarn
+
+Before getting started, ensure that you have Yarn installed on your system. If not, you can install it by following the instructions on the official Yarn website.
+
+- Run storybook: yarn storybook
+
+To visualize and test components, run Storybook using the following command:
+
+- Build tailwind: yarn watch:css
+
+For styling, the project uses Tailwind CSS. To build Tailwind, run the following command: This command will watch for changes in your CSS files and rebuild Tailwind accordingly. Make sure to run this during development to keep styles up-to-date.

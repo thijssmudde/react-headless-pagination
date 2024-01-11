@@ -1,10 +1,10 @@
 import React from "react";
+import clsx from "clsx";
 import { Meta, Story } from "@storybook/react";
-import { Pagination, IPaginationProps } from "../src";
-import classNames from "classnames";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { Pagination, IPaginationProps } from "../src";
 
-import "./tailwind.css";
+import "./tailwind_output.css";
 
 const meta: Meta = {
   title: "Pagination Tailwind",
@@ -34,7 +34,7 @@ const PaginationStory: Story<IPaginationProps> = (args) => {
     >
       <Pagination.PrevButton
         as={<button />}
-        className={classNames(
+        className={clsx(
           "flex items-center mr-2 text-gray-500 hover:text-gray-600 dark:hover:text-gray-200",
           {
             "cursor-pointer": page !== 0,
@@ -59,7 +59,7 @@ const PaginationStory: Story<IPaginationProps> = (args) => {
       </nav>
 
       <Pagination.NextButton
-        className={classNames(
+        className={clsx(
           "flex items-center mr-2 text-gray-500 hover:text-gray-600 dark:hover:text-gray-200",
           {
             "cursor-pointer": page !== args.totalPages - 1,

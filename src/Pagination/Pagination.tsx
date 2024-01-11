@@ -1,5 +1,5 @@
 import React from "react";
-import classNames from "classnames";
+import clsx from "clsx";
 import usePagination from "../Hooks/usePagination";
 import {
   IPagination,
@@ -22,16 +22,25 @@ export const PrevButton = ({
     }
   };
 
+  const disabled = pagination.currentPage === 0;
+
   return (
     <as.type
       {...buttonProps}
       {...as.props}
-      className={classNames(className, as.props.className)}
+      className={clsx(className, as.props.className)}
       onClick={() => previous()}
-      disabled={pagination.currentPage === 0}
+      tabIndex={disabled ? "-1" : 0}
+      disabled={disabled}
       data-testid={dataTestId}
+      onKeyPress={(event: React.KeyboardEvent) => {
+        event.preventDefault();
+        if (event.key === "Enter" && !disabled) {
+          previous();
+        }
+      }}
     >
-      {children}
+      {as.props.children ?? children}
     </as.type>
   );
 };
@@ -50,16 +59,25 @@ export const NextButton = ({
     }
   };
 
+  const disabled = pagination.currentPage === pagination.pages.length - 1;
+
   return (
     <as.type
       {...buttonProps}
       {...as.props}
-      className={classNames(className, as.props.className)}
+      className={clsx(className, as.props.className)}
       onClick={() => next()}
-      disabled={pagination.currentPage === pagination.pages.length - 1}
+      tabIndex={disabled ? "-1" : 0}
+      disabled={disabled}
       data-testid={dataTestId}
+      onKeyPress={(event: React.KeyboardEvent) => {
+        event.preventDefault();
+        if (event.key === "Enter" && !disabled) {
+          next();
+        }
+      }}
     >
-      {children}
+      {as.props.children ?? children}
     </as.type>
   );
 };
@@ -80,8 +98,8 @@ const TruncableElement = ({ prev }: ITruncableElementProps) => {
 
   return (isPreviousTruncable && prev === true) ||
     (isNextTruncable && !prev) ? (
-    <li className={truncableClassName || undefined}>{truncableText}</li>
-  ) : null;
+      <li className={truncableClassName || undefined}>{truncableText}</li>
+    ) : null;
 };
 
 export const PageButton = ({
@@ -98,7 +116,7 @@ export const PageButton = ({
     <li key={page}>
       <as.type
         data-testid={
-          classNames({
+          clsx({
             [`${dataTestIdActive}`]:
               dataTestIdActive && pagination.currentPage + 1 === page,
             [`${dataTestIdInactive}-${page}`]:
@@ -112,7 +130,7 @@ export const PageButton = ({
           }
         }}
         onClick={() => pagination.setCurrentPage(page - 1)}
-        className={classNames(
+        className={clsx(
           className,
           pagination.currentPage + 1 === page
             ? activeClassName
@@ -138,7 +156,7 @@ export const PageButton = ({
 
 const defaultState: IPagination = {
   currentPage: 0,
-  setCurrentPage: () => {},
+  setCurrentPage: () => { },
   truncableText: "...",
   truncableClassName: "",
   pages: [],

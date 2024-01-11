@@ -1,7 +1,7 @@
 {
   "name": "react-headless-pagination",
   "author": "Thijs Smudde",
-  "version": "1.1.1",
+  "version": "1.1.5",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -10,7 +10,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=12.13"
+    "node": ">=18.13"
   },
   "scripts": {
     "start": "tsdx watch",
@@ -22,12 +22,13 @@
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "build:css": "tailwindcss build -o storybook-static/tailwind.css --minify"
+    "build:css": "npx tailwindcss -i ./stories/tailwind.css -o storybook-static/tailwind.css --minify",
+    "watch:css": "npx tailwindcss -i ./stories/tailwind.css -o ./stories/tailwind_output.css --watch",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
-    "classnames": "2.3.1"
+    "clsx": "^2.1.0"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -47,14 +48,14 @@
     "@babel/core": "7.12.13",
     "@headlessui/react": "1.4.1",
     "@size-limit/preset-small-lib": "4.9.2",
-    "@storybook/addon-a11y": "6.3.12",
-    "@storybook/addon-essentials": "6.3.12",
-    "@storybook/addon-info": "5.3.21",
-    "@storybook/addon-links": "6.3.12",
-    "@storybook/addons": "6.3.12",
-    "@storybook/react": "6.3.12",
-    "@tailwindcss/forms": "0.3.4",
-    "@tailwindcss/postcss7-compat": "2.0.3",
+    "@storybook/addon-essentials": "^7.6.7",
+    "@storybook/addon-interactions": "^7.6.7",
+    "@storybook/addon-links": "^7.6.7",
+    "@storybook/addon-onboarding": "^1.0.10",
+    "@storybook/blocks": "^7.6.7",
+    "@storybook/react": "^7.6.7",
+    "@storybook/react-webpack5": "^7.6.7",
+    "@storybook/test": "^7.6.7",
     "@testing-library/jest-dom": "5.11.9",
     "@testing-library/react": "11.2.5",
     "@testing-library/react-hooks": "7.0.2",
@@ -72,9 +73,8 @@
     "react-is": "17.0.1",
     "rollup-plugin-postcss": "4.0.0",
     "size-limit": "4.9.2",
-    "storybook-addon-designs": "6.2.0",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
-    "tailwindcss-breakpoints-inspector": "1.1.0",
+    "storybook": "^7.6.7",
+    "tailwindcss": "^3.4.1",
     "tsdx": "0.14.1",
     "tslib": "2.1.0",
     "typescript": "4.1.3"
