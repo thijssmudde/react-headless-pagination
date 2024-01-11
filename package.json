@@ -1,7 +1,7 @@
 {
   "name": "react-headless-pagination",
   "author": "Thijs Smudde",
-  "version": "1.1.1",
+  "version": "1.1.4",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -10,7 +10,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=12.13"
+    "node": ">=18.13"
   },
   "scripts": {
     "start": "tsdx watch",
@@ -27,7 +27,7 @@
     "build:css": "tailwindcss build -o storybook-static/tailwind.css --minify"
   },
   "dependencies": {
-    "classnames": "2.3.1"
+    "clsx": "^2.1.0"
   },
   "peerDependencies": {
     "react": ">=16"
