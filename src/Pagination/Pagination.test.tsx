@@ -121,6 +121,33 @@ describe("Pagination", () => {
     expect(headingElement.tagName.toLowerCase()).toEqual("span");
   });
 
+  it("renders correctly with extra page button props", () => {
+    const { asFragment } = setupPagination({
+      children: (
+        <>
+          <Pagination.PrevButton>Previous</Pagination.PrevButton>
+
+          <div className="flex items-center justify-center flex-grow">
+            <Pagination.PageButton
+              as={<span />}
+              dataTestIdActive="page-button-extra-props"
+              renderExtraProps={(page) => ({
+                "aria-label": `Go to page ${page}`,
+              })}
+            />
+          </div>
+
+          <Pagination.NextButton>Next</Pagination.NextButton>
+        </>
+      ),
+    });
+
+    expect(asFragment()).toMatchSnapshot();
+
+    const pageBtnElem = screen.getByTestId("page-button-extra-props");
+    expect(pageBtnElem.getAttribute("aria-label")).toContain("Go to page");
+  });
+
   it("clicking on previous calls mockSetCurrentPage with currentPage - 1", () => {
     const mockSetCurrentPage = jest.fn();
 
