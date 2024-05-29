@@ -46,6 +46,7 @@ type PageButtonProps = ButtonProps & {
   inactiveClassName?: string;
   dataTestIdActive?: string;
   dataTestIdInactive?: string;
+  renderExtraProps?: (pageNum: number) => {};
 };
 
 export {

@@ -432,3 +432,104 @@ exports[`Pagination renders correctly with different truncable text 1`] = `
   </div>
 </DocumentFragment>
 `;
+
+exports[`Pagination renders correctly with extra page button props 1`] = `
+<DocumentFragment>
+  <div
+    class=""
+  >
+    <button
+      class=""
+      tabindex="0"
+    >
+      Previous
+    </button>
+    <div
+      class="flex items-center justify-center flex-grow"
+    >
+      <li>
+        <span
+          aria-label="Go to page 1"
+          class=""
+          data-testid="undefined-1"
+          tabindex="0"
+        >
+          1
+        </span>
+      </li>
+      <li>
+        ...
+      </li>
+      <li>
+        <span
+          aria-label="Go to page 4"
+          class=""
+          data-testid="undefined-4"
+          tabindex="0"
+        >
+          4
+        </span>
+      </li>
+      <li>
+        <span
+          aria-label="Go to page 5"
+          class=""
+          data-testid="undefined-5"
+          tabindex="0"
+        >
+          5
+        </span>
+      </li>
+      <li>
+        <span
+          aria-label="Go to page 6"
+          class=""
+          data-testid="page-button-extra-props"
+          tabindex="0"
+        >
+          6
+        </span>
+      </li>
+      <li>
+        <span
+          aria-label="Go to page 7"
+          class=""
+          data-testid="undefined-7"
+          tabindex="0"
+        >
+          7
+        </span>
+      </li>
+      <li>
+        <span
+          aria-label="Go to page 8"
+          class=""
+          data-testid="undefined-8"
+          tabindex="0"
+        >
+          8
+        </span>
+      </li>
+      <li>
+        ...
+      </li>
+      <li>
+        <span
+          aria-label="Go to page 10"
+          class=""
+          data-testid="undefined-10"
+          tabindex="0"
+        >
+          10
+        </span>
+      </li>
+    </div>
+    <button
+      class=""
+      tabindex="0"
+    >
+      Next
+    </button>
+  </div>
+</DocumentFragment>
+`;

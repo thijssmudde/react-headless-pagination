@@ -98,8 +98,8 @@ const TruncableElement = ({ prev }: ITruncableElementProps) => {
 
   return (isPreviousTruncable && prev === true) ||
     (isNextTruncable && !prev) ? (
-      <li className={truncableClassName || undefined}>{truncableText}</li>
-    ) : null;
+    <li className={truncableClassName || undefined}>{truncableText}</li>
+  ) : null;
 };
 
 export const PageButton = ({
@@ -109,6 +109,7 @@ export const PageButton = ({
   dataTestIdInactive,
   activeClassName,
   inactiveClassName,
+  renderExtraProps,
 }: PageButtonProps) => {
   const pagination: IPagination = React.useContext(PaginationContext);
 
@@ -137,6 +138,7 @@ export const PageButton = ({
             : inactiveClassName,
         )}
         {...as.props}
+        {...(renderExtraProps ? renderExtraProps(page) : {})}
       >
         {page}
       </as.type>
@@ -156,7 +158,7 @@ export const PageButton = ({
 
 const defaultState: IPagination = {
   currentPage: 0,
-  setCurrentPage: () => { },
+  setCurrentPage: () => {},
   truncableText: "...",
   truncableClassName: "",
   pages: [],
